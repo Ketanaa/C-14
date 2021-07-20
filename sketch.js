@@ -3,11 +3,11 @@ var bow , arrow,  scene;
 var bowImage, arrowImage, green_balloonImage, red_balloonImage, pink_balloonImage ,blue_balloonImage, backgroundImage;
 
 //creating groups for ballons and arrows
-var redB= new Group();
-var blueB= new Group();
-var pinkB= new Group();
-var greenB= new Group();
-var arrowGroup= new Group();
+var redB;
+var blueB;
+var pinkB;
+var greenB;
+var arrowGroup
 
 //variable for score
 var score=0;
@@ -39,7 +39,13 @@ function setup() {
   bow.addImage(bowImage); 
   bow.scale = 1;
   
-  score = 0    
+  score = 0;
+  
+redB= new Group();
+blueB= new Group();
+pinkB= new Group();
+greenB= new Group();
+arrowGroup= new Group();
 }
 
 
@@ -62,28 +68,28 @@ function draw() {
   }
    
   //writing the code to destroy the ballons and increase the score
-  if(arrowGroup.isTouching(redB))
+  if (arrowGroup.isTouching(redB))
   {
     redB.destroyEach();
     arrowGroup.destroyEach();
 
     score=score+1;
   }
-  if(arrowGroup.isTouching(blueB))
+  if (arrowGroup.isTouching(blueB))
   {
     blueB.destroyEach();
     arrowGroup.destroyEach();
 
     score=score+1;
   }
-  if(arrowGroup.isTouching(pinkB))
+  if (arrowGroup.isTouching(pinkB))
   {
     pinkB.destroyEach();
     arrowGroup.destroyEach();
 
     score=score+1;
   }
-  if(arrowGroup.isTouching(greenB))
+  if (arrowGroup.isTouching(greenB))
   {
     greenB.destroyEach();
     arrowGroup.destroyEach();
@@ -119,8 +125,9 @@ function draw() {
   arrow.velocityX = -4;
   arrow.lifetime = 100;
   arrow.scale = 0.3;
+  arrowGroup.add(arrow);
 }
-arrowGroup.add(arrow);
+
 
 function redBalloon() {
   var red = createSprite(0,Math.round(random(20, 370)), 10, 10);
@@ -128,8 +135,9 @@ function redBalloon() {
   red.velocityX = 3;
   red.lifetime = 150;
   red.scale = 0.1;
+  redB.add(red);
 }
-redB.add(red);
+
 
 function blueBalloon() {
   var blue = createSprite(0,Math.round(random(20, 370)), 10, 10);
@@ -137,8 +145,9 @@ function blueBalloon() {
   blue.velocityX = 3;
   blue.lifetime = 150;
   blue.scale = 0.1;
+  blueB.add(blue);
 }
-blueB.add(blue);
+
 
 function greenBalloon() {
   var green = createSprite(0,Math.round(random(20, 370)), 10, 10);
@@ -146,8 +155,9 @@ function greenBalloon() {
   green.velocityX = 3;
   green.lifetime = 150;
   green.scale = 0.1;
+  greenB.add(green);
 }
-greenB.add(green);
+
 
 function pinkBalloon() {
   var pink = createSprite(0,Math.round(random(20, 370)), 10, 10);
@@ -155,5 +165,5 @@ function pinkBalloon() {
   pink.velocityX = 3;
   pink.lifetime = 150;
   pink.scale = 1
+  pinkB.add(pink);
 }
-pinkB.add(pink);
